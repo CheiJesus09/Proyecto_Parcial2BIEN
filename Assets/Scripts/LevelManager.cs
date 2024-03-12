@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,11 +60,11 @@ public class LevelManager : MonoBehaviour
         {
             //Establecemos la leccion actual
             currentLesson = Lesson.leccionList[currentQuestion];
-            //ERstablecemos la pregunta
+            //Establecemos la pregunta
             question = currentLesson.lessons;
-            //respuesta correcta
+            //la respuesta correcta
             correctAnswer = currentLesson.opciones[currentLesson.correctAnswer];
-            //Pregunta en UI
+            //Pregunta a mostrar en el UI
             Questiontxt.text = question;
 
             for(int i =0; i < currentLesson.opciones.Count; i++)
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            //llegamos al final
+            //Finalizar las preguntas
             Debug.Log("Fin de las preguntas");
         }
     }
@@ -89,16 +89,17 @@ public class LevelManager : MonoBehaviour
             if (currentQuestion < questionAmount)
             {
                 bool isCorrect = currentLesson.opciones[CorrectAnswerfromUser] == correctAnswer;
-
+                //Proceso para comprobar si la respuesta es correcta o incorrecta
                 AnswerContainer.SetActive(true);
                 if(isCorrect)
                 {
+                    //Mostramos con verde y un mensaje que la respuesta es correcta
                     AnswerContainer.GetComponent<Image>().color = Green;
                     Questiongood.text="Respuesta correcta. " + question + ": " + correctAnswer;
                 }
                 else
                 {
-
+                    //Mostramos con rojo y un mensaje que la respuesta es incorrecta
                     AnswerContainer.GetComponent<Image>().color = Red;
                     Questiongood.text = "Respuesta Incorrecta. " + question + ": " + correctAnswer;
                 }
@@ -106,7 +107,7 @@ public class LevelManager : MonoBehaviour
                 //Incrementamos el indice de la pregunta actual
                 currentQuestion++;
 
-                //Mostrar el resultado durante un tiempo
+                //Mostramos el resultado por un pequeño periodo de tiempo
 
                 StartCoroutine(ShowResultAndLoadQuestion(isCorrect));
 
@@ -128,7 +129,7 @@ public class LevelManager : MonoBehaviour
         //Oculta el contenedor de respuestas
         AnswerContainer.SetActive(false);
 
-        //cargar pregunta
+        //Cargar pregunta actual
         LoadQuestion();
 
         //Activar el boton despues de mostrar el resultado
@@ -141,6 +142,7 @@ public class LevelManager : MonoBehaviour
 
     public void setPlayerAnswer(int _answer)
     {
+        //La respuesta la escoge el usuario
         CorrectAnswerfromUser = _answer;
     }
 
@@ -148,12 +150,14 @@ public class LevelManager : MonoBehaviour
     {
         if (CorrectAnswerfromUser != 9)
         {
+            //Comprobar si el botón es interactuable para el usuario
             checkbutton.GetComponent<Button>().interactable = true;
             checkbutton.GetComponent<Image>().color = Color.white;
             return true;
         }
         else
         {
+            //Comprobar si el botón no es interactuable para el usuario
             checkbutton.GetComponent<Button>().interactable = false;
             checkbutton.GetComponent<Image>().color = Color.grey;
             return false;

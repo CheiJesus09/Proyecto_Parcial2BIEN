@@ -43,6 +43,7 @@ public class LevelContainer : MonoBehaviour
 
         if (StageTitle != null || LessonStage != null)
         {
+            //Muestra que nivel vas a seleccionar
             StageTitle.text = "Leccion " + Lection;
             LessonStage.text = "Leccion " + currentLession + " de " + TotalLession;
         }
