@@ -8,6 +8,16 @@ Características:
 - Pasa a la siguiente pregunta después de un tiempo establecido.
 - Proyecta un mensaje dependiendo de respuestas correctas o incorrectas.
 
+Para descargar el archivo sigue las siguientes instrucciones:
+
+1. Accede al repositorio de GitHub: Entra a GitHub, al repositorio indicado y encuentra el archivo que desees descargar.
+
+2. Haz clic en <> Code y descarga el archivo ZIP
+
+3. Espera que la descarga se complete
+
+4. Ejecuta el archivo
+
 ¿Como se usa?
 La primer pantalla es un menú de selección de lecciones, seleccionar una lección te llevara a un cuestionario de 5 preguntas. Aparecera un pop-up indicando la
 lección que el usuario este escogiendo, asimismo con un botón para iniciar la lección.
